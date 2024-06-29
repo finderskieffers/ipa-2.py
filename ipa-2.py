@@ -37,16 +37,11 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
     if letter == " ":
         return " "
     else:
-        ind1 = alphabet.index(letter)
-        ind2 = (ind1 + shift) % 26
-        return alphabet[ind2]
-
-
-
+        return alphabet[(alphabet.index(letter)+shift)%26]
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher.
@@ -68,13 +63,11 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    encrypted = "" 
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    encrypted = ""
     for char in message:
         if char in alphabet:
-            ind1 = alphabet.index(char) 
-            ind2 = (ind1 + shift) % 26 
-            encrypted += alphabet[ind2] 
+            encrypted += alphabet[(alphabet.index(char)+shift)%26]
         else:
             encrypted += char
 
@@ -112,16 +105,12 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code.
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    if letter == " ":
-        return " "
+    alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    if letter in alphabet:
+        return alphabet[(alphabet.index(letter)+alphabet.index(letter_shift))%26]
     else:
-        ind1 = alphabet.index(letter)
-        ind2 = alphabet.index(letter_shift)
-        ind3 = (ind1 + ind2) % 26 
-        return alphabet[ind3] 
+        return letter
     
-
 def vigenere_cipher(message, key):
     '''Vigenere Cipher.
     15 points.
